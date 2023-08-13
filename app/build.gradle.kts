@@ -7,7 +7,7 @@ plugins {
     id("io.spring.dependency-management") version "1.1.3"
     jacoco
     id("io.gitlab.arturbosch.detekt") version "1.23.1"
-    id("org.jmailen.kotlinter") version "3.15.0"
+    id("org.jmailen.kotlinter") version "3.16.0"
 }
 
 repositories {
