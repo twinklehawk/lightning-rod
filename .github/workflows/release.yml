@@ -12,6 +12,7 @@ jobs:
       - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3
       - name: Build docker image
         run: |
+          cd app
           TAG_NAME=${GITHUB_REF#"refs/tags/"}
           docker build -t lightning-rod \
             --label="org.opencontainers.image.version=$TAG_NAME" \
