@@ -1,6 +1,7 @@
-package net.plshark.lightningrod.app
+package net.plshark.lightningrod
 
-    // https://ambientweather.com/faqs/question/view/id/1857/
+@Suppress("ConstructorParameterNaming")
+// https://ambientweather.com/faqs/question/view/id/1857/
 data class AmbientWeatherMeasurementRequest(
     // Device Mac address. Colons included.
     // named MAC
