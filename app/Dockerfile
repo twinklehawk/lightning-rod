@@ -6,10 +6,18 @@ LABEL org.opencontainers.image.source=https://github.com/twinklehawk/lightning-r
 LABEL org.opencontainers.image.description="Weather service"
 LABEL org.opencontainers.image.licenses=Apache-2.0
 
-RUN adduser -D -H lightningrod
-
 WORKDIR /app
 COPY build/libs/app.jar app.jar
 
-USER lightningrod
+# Set user and group
+ARG user=lightningrod
+ARG group=lightningrod
+ARG uid=1000
+ARG gid=1000
+RUN groupadd -g ${gid} ${group}
+RUN useradd -u ${uid} -g ${group} ${user}
+USER ${user}
+
+EXPOSE 8080
+
 ENTRYPOINT ["java", "-jar", "app.jar"]
