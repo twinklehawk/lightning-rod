@@ -10,6 +10,22 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3
+      - uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+            .gradle/configuration-cache
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle.kts') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+      - name: Set up JDK
+        uses: actions/setup-java@cd89f46ac9d01407894225f350157564c9c7cee2 # v3
+        with:
+          distribution: temurin
+          java-version: 17
+      - name: Build and test
+        run: ./gradlew assemble --no-daemon
       - name: Build docker image
         run: |
           cd app
