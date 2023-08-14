@@ -21,7 +21,7 @@ dependencyManagement {
         mavenBom("org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.7.3")
     }
     dependencies {
-        dependency("io.mockk:mockk:1.13.5")
+        dependency("io.mockk:mockk:1.13.6")
     }
 }
 
