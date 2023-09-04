@@ -28,16 +28,20 @@ dependencyManagement {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.springframework.boot:spring-boot-starter-security")
+    implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("io.projectreactor:reactor-core")
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
     implementation(kotlin("reflect"))
     implementation(kotlin("stdlib-jdk8"))
+    runtimeOnly("org.postgresql:r2dbc-postgresql")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api")
     testImplementation("io.mockk:mockk")
     testImplementation("org.assertj:assertj-core")
     testImplementation("io.projectreactor:reactor-test")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
 }
 
