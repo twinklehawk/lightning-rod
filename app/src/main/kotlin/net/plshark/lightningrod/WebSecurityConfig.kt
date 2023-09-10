@@ -16,7 +16,6 @@ class WebSecurityConfig {
         return http
             .authorizeExchange {
                 it.pathMatchers("/ambient-weather/measurement").permitAll()
-                    // TODO
                     .anyExchange().denyAll()
             }
             .securityContextRepository(NoOpServerSecurityContextRepository.getInstance())

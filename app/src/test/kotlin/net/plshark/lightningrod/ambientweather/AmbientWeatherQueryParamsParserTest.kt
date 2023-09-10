@@ -2,9 +2,12 @@ package net.plshark.lightningrod.ambientweather
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 import java.math.BigDecimal
 
 class AmbientWeatherQueryParamsParserTest {
+
+    private val parser = AmbientWeatherQueryParamsParser()
 
     @Test
     fun `correctly parses each field into the request object`() {
@@ -23,7 +26,7 @@ class AmbientWeatherQueryParamsParserTest {
             AmbientWeatherMeasurementRequest.SOLAR_RADIATION to "1.23",
             AmbientWeatherMeasurementRequest.UV to "5",
         )
-        val request = AmbientWeatherQueryParamsParser().parseToRequest(queryParams)
+        val request = parser.parseToRequest(queryParams)
 
         assertThat(request.stationType).isEqualTo("station")
         assertThat(request.passkey).isEqualTo("12:34:56")
@@ -38,5 +41,12 @@ class AmbientWeatherQueryParamsParserTest {
         assertThat(request.dailyRainfallInches).isEqualTo(BigDecimal("2.5"))
         assertThat(request.solarRadiation).isEqualTo(BigDecimal("1.23"))
         assertThat(request.uvIndex).isEqualTo(5)
+    }
+
+    @Test
+    fun `should throw an exception if a required parameter is missing`() {
+        val queryParams = mapOf(AmbientWeatherMeasurementRequest.STATION_TYPE to "station")
+
+        assertThrows<IllegalArgumentException> { parser.parseToRequest(queryParams) }
     }
 }
