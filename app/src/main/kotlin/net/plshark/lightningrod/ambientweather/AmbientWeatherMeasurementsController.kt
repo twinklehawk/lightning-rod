@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/weather/ambient-weather/measurements")
+@RequestMapping("/ambient-weather/measurements")
 class AmbientWeatherMeasurementsController(
     private val service: AmbientWeatherMeasurementsService,
     private val paramsParser: AmbientWeatherQueryParamsParser,

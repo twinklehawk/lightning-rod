@@ -15,7 +15,7 @@ class WebSecurityConfig {
     fun securityFilterChain(http: ServerHttpSecurity): SecurityWebFilterChain {
         return http
             .authorizeExchange {
-                it.pathMatchers("/ambient-weather/measurement").permitAll()
+                it.pathMatchers("/ambient-weather/measurements").permitAll()
                     .anyExchange().denyAll()
             }
             .securityContextRepository(NoOpServerSecurityContextRepository.getInstance())
