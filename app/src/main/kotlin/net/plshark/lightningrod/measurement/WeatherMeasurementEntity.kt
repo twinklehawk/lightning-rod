@@ -6,7 +6,7 @@ import java.time.OffsetDateTime
 
 data class WeatherMeasurementEntity(
     @Id
-    val id: Long?,
+    val id: Long? = null,
     val stationId: Long,
     val measuredAt: OffsetDateTime,
     val temperature: BigDecimal,
