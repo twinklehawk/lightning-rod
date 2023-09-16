@@ -23,7 +23,7 @@ class ExceptionHandlerControllerAdvice : ResponseEntityExceptionHandler() {
             ex.message ?: "Invalid request",
             null,
             null,
-            exchange
+            exchange,
         )
         return createResponseEntity(detail, null, status, exchange)
     }

@@ -1,5 +1,6 @@
 package net.plshark.lightningrod.ambientweather
 
+import net.plshark.lightningrod.exception.BadRequestException
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
@@ -47,6 +48,6 @@ class AmbientWeatherQueryParamsParserTest {
     fun `should throw an exception if a required parameter is missing`() {
         val queryParams = mapOf(AmbientWeatherMeasurementRequest.STATION_TYPE to "station")
 
-        assertThrows<IllegalArgumentException> { parser.parseToRequest(queryParams) }
+        assertThrows<BadRequestException> { parser.parseToRequest(queryParams) }
     }
 }

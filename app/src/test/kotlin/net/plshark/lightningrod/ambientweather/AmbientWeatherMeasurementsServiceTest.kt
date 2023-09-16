@@ -4,6 +4,7 @@ import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
 import kotlinx.coroutines.test.runTest
+import net.plshark.lightningrod.exception.BadRequestException
 import net.plshark.lightningrod.measurement.WeatherMeasurementsService
 import net.plshark.lightningrod.station.Station
 import net.plshark.lightningrod.station.StationsService
@@ -35,7 +36,7 @@ class AmbientWeatherMeasurementsServiceTest {
         val request = buildDummyRequest()
         coEvery { stationsService.findStationByMac(request.passkey) } returns null
 
-        assertThrows<IllegalArgumentException> { service.saveWeatherMeasurement(request) }
+        assertThrows<BadRequestException> { service.saveWeatherMeasurement(request) }
     }
 
     private fun buildDummyRequest() =
