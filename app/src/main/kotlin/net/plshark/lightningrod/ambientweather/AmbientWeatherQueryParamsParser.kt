@@ -1,5 +1,6 @@
 package net.plshark.lightningrod.ambientweather
 
+import net.plshark.lightningrod.exception.BadRequestException
 import org.springframework.stereotype.Component
 import java.math.BigDecimal
 
@@ -29,6 +30,5 @@ class AmbientWeatherQueryParamsParser {
     private fun parseInt(map: Map<String, String>, field: String) = parseString(map, field).toInt()
 
     private fun parseString(map: Map<String, String>, field: String) =
-        // TODO exception type
-        map[field] ?: throw IllegalArgumentException("No value for required field $field")
+        map[field] ?: throw BadRequestException("No value for required field $field")
 }

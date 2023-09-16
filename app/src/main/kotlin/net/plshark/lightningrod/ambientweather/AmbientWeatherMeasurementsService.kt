@@ -1,5 +1,6 @@
 package net.plshark.lightningrod.ambientweather
 
+import net.plshark.lightningrod.exception.BadRequestException
 import net.plshark.lightningrod.measurement.WeatherMeasurementsService
 import net.plshark.lightningrod.station.StationsService
 import org.springframework.stereotype.Service
@@ -17,7 +18,7 @@ class AmbientWeatherMeasurementsService(
     }
 
     private suspend fun getStationId(macAddress: String): Long {
-        // TODO exception type
-        return stationsService.findStationByMac(macAddress)?.id ?: throw IllegalArgumentException("Fix me")
+        return stationsService.findStationByMac(macAddress)?.id
+            ?: throw BadRequestException("No station found for mac address $macAddress")
     }
 }
