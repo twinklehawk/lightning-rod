@@ -24,7 +24,7 @@ jobs:
         with:
           distribution: temurin
           java-version: 17
-      - name: Build and test
+      - name: Build jar
         run: ./gradlew assemble --no-daemon
       - name: Build docker image
         run: |
