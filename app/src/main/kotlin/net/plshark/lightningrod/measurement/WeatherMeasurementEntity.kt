@@ -1,9 +1,11 @@
 package net.plshark.lightningrod.measurement
 
 import org.springframework.data.annotation.Id
+import org.springframework.data.relational.core.mapping.Table
 import java.math.BigDecimal
 import java.time.OffsetDateTime
 
+@Table("weather_measurements")
 data class WeatherMeasurementEntity(
     @Id
     val id: Long? = null,
