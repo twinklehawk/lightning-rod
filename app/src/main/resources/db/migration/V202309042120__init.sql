@@ -12,14 +12,14 @@ CREATE TABLE IF NOT EXISTS weather_measurements
     station_id BIGINT NOT NULL REFERENCES stations ON DELETE CASCADE,
     measured_at TIMESTAMP WITH TIME ZONE NOT NULL,
     temperature DECIMAL NOT NULL,
-    humidityPercent INTEGER NOT NULL,
-    windDirectionDegrees INTEGER NOT NULL,
-    windSpeedMph DECIMAL NOT NULL,
-    windGustMph DECIMAL NOT NULL,
-    hourlyRainfallInches DECIMAL NOT NULL,
-    eventRainfallInches DECIMAL NOT NULL,
-    dailyRainfallInches DECIMAL NOT NULL,
-    solarRadiation DECIMAL NOT NULL,
-    uvIndex INTEGER NOT NULL
+    humidity_percent INTEGER NOT NULL,
+    wind_direction_degrees INTEGER NOT NULL,
+    wind_speed_mph DECIMAL NOT NULL,
+    wind_gust_mph DECIMAL NOT NULL,
+    hourly_rainfall_inches DECIMAL NOT NULL,
+    event_rainfall_inches DECIMAL NOT NULL,
+    daily_rainfall_inches DECIMAL NOT NULL,
+    solar_radiation DECIMAL NOT NULL,
+    uv_index INTEGER NOT NULL
 );
 CREATE INDEX IF NOT EXISTS weather_measurements_measured_at_idx ON weather_measurements (measured_at);
