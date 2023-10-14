@@ -1,9 +1,9 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.9.0"
+    kotlin("jvm") version "1.9.10"
     id("org.springframework.boot") version "3.1.4"
-    kotlin("plugin.spring") version "1.9.0"
+    kotlin("plugin.spring") version "1.9.10"
     id("io.spring.dependency-management") version "1.1.3"
     jacoco
     id("io.gitlab.arturbosch.detekt") version "1.23.1"
@@ -17,7 +17,7 @@ repositories {
 dependencyManagement {
     imports {
         mavenBom("org.springframework.boot:spring-boot-dependencies:3.1.4")
-        mavenBom("org.jetbrains.kotlin:kotlin-bom:1.9.0")
+        mavenBom("org.jetbrains.kotlin:kotlin-bom:1.9.10")
         mavenBom("org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.7.3")
     }
     dependencies {
