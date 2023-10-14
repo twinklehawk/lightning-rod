@@ -6,7 +6,6 @@ import java.math.BigDecimal
 
 @Component
 class AmbientWeatherQueryParamsParser {
-
     fun parseToRequest(queryParams: Map<String, String>): AmbientWeatherMeasurementRequest {
         return AmbientWeatherMeasurementRequest(
             parseString(queryParams, AmbientWeatherMeasurementRequest.STATION_TYPE),
@@ -25,10 +24,18 @@ class AmbientWeatherQueryParamsParser {
         )
     }
 
-    private fun parseFloat(map: Map<String, String>, field: String) = BigDecimal(parseString(map, field))
+    private fun parseFloat(
+        map: Map<String, String>,
+        field: String,
+    ) = BigDecimal(parseString(map, field))
 
-    private fun parseInt(map: Map<String, String>, field: String) = parseString(map, field).toInt()
+    private fun parseInt(
+        map: Map<String, String>,
+        field: String,
+    ) = parseString(map, field).toInt()
 
-    private fun parseString(map: Map<String, String>, field: String) =
-        map[field] ?: throw BadRequestException("No value for required field $field")
+    private fun parseString(
+        map: Map<String, String>,
+        field: String,
+    ) = map[field] ?: throw BadRequestException("No value for required field $field")
 }

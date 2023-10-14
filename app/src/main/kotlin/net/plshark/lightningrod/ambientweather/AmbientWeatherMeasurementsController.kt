@@ -11,9 +11,10 @@ class AmbientWeatherMeasurementsController(
     private val service: AmbientWeatherMeasurementsService,
     private val paramsParser: AmbientWeatherQueryParamsParser,
 ) {
-
     @GetMapping
-    suspend fun saveWeatherMeasurement(@RequestParam params: Map<String, String>) {
+    suspend fun saveWeatherMeasurement(
+        @RequestParam params: Map<String, String>,
+    ) {
         val request = paramsParser.parseToRequest(params)
         service.saveWeatherMeasurement(request)
     }

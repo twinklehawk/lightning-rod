@@ -10,9 +10,11 @@ import org.springframework.context.annotation.Configuration
 @Configuration
 @EnableConfigurationProperties(value = [R2dbcProperties::class, FlywayProperties::class])
 class FlywayConfig {
-
     @Bean(initMethod = "migrate")
-    fun flyway(flywayProperties: FlywayProperties, r2dbcProperties: R2dbcProperties): Flyway {
+    fun flyway(
+        flywayProperties: FlywayProperties,
+        r2dbcProperties: R2dbcProperties,
+    ): Flyway {
         return Flyway.configure()
             .dataSource(
                 flywayProperties.url,

@@ -8,10 +8,11 @@ import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 
 fun AmbientWeatherMeasurementRequest.toWeatherMeasurement(stationId: Long): WeatherMeasurement {
-    val odt = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
-        .parse(this.timestamp)
-        .let { LocalDateTime.from(it) }
-        .let { OffsetDateTime.of(it, ZoneOffset.UTC) }
+    val odt =
+        DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+            .parse(this.timestamp)
+            .let { LocalDateTime.from(it) }
+            .let { OffsetDateTime.of(it, ZoneOffset.UTC) }
     return WeatherMeasurement(
         id = null,
         stationId = stationId,

@@ -5,6 +5,5 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface StationsRepository : CoroutineCrudRepository<StationEntity, Long> {
-
     suspend fun findByMacAddress(macAddress: String): StationEntity?
 }
