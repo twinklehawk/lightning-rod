@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service
 class StationsService(
     private val repository: StationsRepository,
 ) {
-
     suspend fun findStationByMac(macAddress: String): Station? {
         return repository.findByMacAddress(macAddress)?.toStation()
     }

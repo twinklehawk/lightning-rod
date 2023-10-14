@@ -10,7 +10,6 @@ import org.springframework.security.web.server.context.NoOpServerSecurityContext
 @Configuration
 @EnableWebFluxSecurity
 class WebSecurityConfig {
-
     @Bean
     fun securityFilterChain(http: ServerHttpSecurity): SecurityWebFilterChain {
         return http

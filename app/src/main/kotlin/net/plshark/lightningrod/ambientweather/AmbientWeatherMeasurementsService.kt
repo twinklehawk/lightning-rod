@@ -10,7 +10,6 @@ class AmbientWeatherMeasurementsService(
     private val measurementService: WeatherMeasurementsService,
     private val stationsService: StationsService,
 ) {
-
     suspend fun saveWeatherMeasurement(measurementRequest: AmbientWeatherMeasurementRequest) {
         getStationId(measurementRequest.passkey)
             .let { stationId -> measurementRequest.toWeatherMeasurement(stationId) }

@@ -10,21 +10,21 @@ import reactor.core.publisher.Mono
 
 @ControllerAdvice
 class ExceptionHandlerControllerAdvice : ResponseEntityExceptionHandler() {
-
     @ExceptionHandler(BadRequestException::class)
     fun handleBadRequestException(
         ex: BadRequestException,
         exchange: ServerWebExchange,
     ): Mono<ResponseEntity<Any>> {
         val status = HttpStatus.BAD_REQUEST
-        val detail = createProblemDetail(
-            ex,
-            status,
-            ex.message ?: "Invalid request",
-            null,
-            null,
-            exchange,
-        )
+        val detail =
+            createProblemDetail(
+                ex,
+                status,
+                ex.message ?: "Invalid request",
+                null,
+                null,
+                exchange,
+            )
         return createResponseEntity(detail, null, status, exchange)
     }
 }
