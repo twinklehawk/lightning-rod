@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm") version "1.9.10"
     id("org.springframework.boot") version "3.1.5"
-    kotlin("plugin.spring") version "1.9.10"
+    kotlin("plugin.spring") version "1.9.20"
     id("io.spring.dependency-management") version "1.1.4"
     jacoco
     id("io.gitlab.arturbosch.detekt") version "1.23.1"
