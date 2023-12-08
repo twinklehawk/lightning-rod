@@ -6,7 +6,8 @@
   "enabledManagers": [
     "github-actions",
     "gradle",
-    "gradle-wrapper"
+    "gradle-wrapper",
+    "dockerfile"
   ],
   "labels": [
     "dependencies"
