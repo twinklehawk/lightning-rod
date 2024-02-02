@@ -1,4 +1,4 @@
-FROM eclipse-temurin:21.0.2_13-jdk@sha256:18f800a7a9b4e69567694315d7abba066ef33ed321642d872b324f171864e85e
+FROM eclipse-temurin:21.0.2_13-jdk@sha256:cada5e74103f44370c7b788f78eabd5df5b3561759c471c18e69cce8caf75902
 
 LABEL org.opencontainers.image.title=lightning-rod
 LABEL org.opencontainers.image.url=https://github.com/twinklehawk/lightning-rod
