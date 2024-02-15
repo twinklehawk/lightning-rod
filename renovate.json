@@ -11,5 +11,6 @@
   ],
   "labels": [
     "dependencies"
-  ]
+  ],
+  "schedule": ["* 6-11 * * *"]
 }
